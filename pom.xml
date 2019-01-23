@@ -54,12 +54,17 @@
 							<!-- Classpath is used in example tests to start H2 -->
 							<variable>maven.test.classpath:${maven.test.classpath}</variable>
 						</variables>
+						<!-- Python library location -->
+						<extraPathDirectories>
+							<extraPathDirectory>${project.basedir}/src/test/resources/libraries</extraPathDirectory>
+						</extraPathDirectories>
 					</configuration>
 				</plugin>
 			</plugins>
 		</pluginManagement>
 		<plugins>
-		<!-- Executed every time to get Classpath to Robot tests (required because of H2 dependencies are in test scope) -->
+			<!-- Executed every time to get Classpath to Robot tests (required because 
+				of H2 dependencies are in test scope) -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-antrun-plugin</artifactId>
@@ -126,10 +131,6 @@
 							<argumentFile>${ride.argumentFile}</argumentFile>
 							<listener>${ride.listener}</listener>
 							<testCasesDirectory>${ride.testCasesDirectory}</testCasesDirectory>
-							<!-- Python library location -->
-							<extraPathDirectories>
-								<extraPathDirectory>${project.basedir}/src/test/resources/libraries</extraPathDirectory>
-							</extraPathDirectories>
 						</configuration>
 					</plugin>
 				</plugins>
